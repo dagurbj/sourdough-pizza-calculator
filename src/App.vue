@@ -1,11 +1,11 @@
 <template>
-  <div class="slider-container">
-    <div class="slider-header">
-      <h2>Number of Pizzas</h2>
-      <p class="selected-number">{{ numberOfPizzas }}</p>
-    </div>
-    <input type="range" v-model="numberOfPizzas" min="1" max="20" step="1">
+<div class="slider-container">
+  <div class="slider-header">
+    <h2>Number of Pizzas</h2>
+    <input type="number" v-model="numberOfPizzas" class="selected-number" min="1" @keyup.enter="removeFocus">
   </div>
+  <input type="range" v-model="numberOfPizzas" min="1" max="20" step="1">
+</div>
 
   <div class="slider-container">
     <div class="slider-header">
@@ -111,7 +111,12 @@ export default {
     },
     gramsSalt() {
       return Math.round(this.saltPct / 100 * (this.gramsFlour + (- (2 * this.gramsFlour * this.levain / 100) / (this.levain / 100 - 1)) / 2));
-    },
+    }
+  },
+  methods: {
+    removeFocus(event) {
+      event.target.blur(); // Remove focus from input field on Enter
+    }
   }
 };
 </script>
@@ -180,6 +185,9 @@ input[type="range"] {
   padding: 5px 10px;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 60px;
+  text-align: right;
+  border: none;
 }
 
 /* Slider Track and Thumb */
