@@ -38,6 +38,10 @@
     </div>
     <input type="range" v-model="levain" min="5" max="25" step="1">
   </div>
+
+  <div class="reset-button-container">
+    <button @click="resetToDefault" class="reset-button">Reset to Default</button>
+  </div>
   
   <div id="sourdough-pizza-recipe" class="recipe">
     <h2>Sourdough Pizza Dough Recipe</h2>
@@ -85,13 +89,16 @@
 export default {
   name: 'App',
   data() {
-    return {
-      numberOfPizzas: this.loadState('numberOfPizzas', 4),
-      ballSize: this.loadState('ballSize', 240),
-      saltPct: this.loadState('saltPct', 2.0),
-      hydration: this.loadState('hydration', 70),
-      levain: this.loadState('levain', 10),
-    };
+    let initialState = this.getDefaultState();
+
+    for (const key in initialState) {
+      const savedValue = localStorage.getItem(key);
+      if (savedValue !== null) {
+        initialState[key] = JSON.parse(savedValue);
+      }
+    }
+
+    return initialState;
   },
   watch: {
     numberOfPizzas(newVal) {
@@ -140,6 +147,18 @@ export default {
     loadState(key, defaultValue) {
       const savedValue = localStorage.getItem(key);
       return savedValue !== null ? JSON.parse(savedValue) : defaultValue;
+    },
+    getDefaultState() {
+      return {
+        numberOfPizzas: 4,
+        ballSize: 240,
+        saltPct: 2,
+        hydration: 70,
+        levain: 10,
+      };
+    },
+    resetToDefault() {
+      Object.assign(this.$data, this.getDefaultState());
     }
   }
 };
@@ -188,7 +207,7 @@ input[type="range"] {
 
 /* Slider Container */
 .slider-container {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .slider-header {
@@ -201,17 +220,37 @@ input[type="range"] {
   margin: 0;
 }
 
-.selected-number {
-  margin: 0;
-  font-size: 1.2em;
-  color: var(--highlight-color);
-  background-color: var(--background-light);
-  padding: 5px 10px;
+/* Shared Styles for Selected Number and Button */
+.selected-number, .reset-button {
+  padding: 3px 6px; /* Reduced padding */
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 60px;
+  color: var(--highlight-color);
+  text-align: center;
+  cursor: pointer;
+}
+
+.selected-number {
+  margin: 0;
+  width: 60px; /* Specific to the input box */
   text-align: right;
-  border: none;
+  font-size: 1em; /* Original font size for the input */
+}
+
+/* Reset to Defualt Button */
+.reset-button-container {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.reset-button {
+  font-size: 0.8em; /* Smaller font size for the button */
+}
+
+.reset-button:hover {
+  background-color: #e6e6e6;
 }
 
 /* Slider Track and Thumb */
