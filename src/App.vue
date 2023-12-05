@@ -86,12 +86,29 @@ export default {
   name: 'App',
   data() {
     return {
-      numberOfPizzas: 4,
-      ballSize: 240,
-      saltPct: 2.0,
-      hydration: 70,
-      levain: 10
+      numberOfPizzas: this.loadState('numberOfPizzas', 4),
+      ballSize: this.loadState('ballSize', 240),
+      saltPct: this.loadState('saltPct', 2.0),
+      hydration: this.loadState('hydration', 70),
+      levain: this.loadState('levain', 10),
     };
+  },
+  watch: {
+    numberOfPizzas(newVal) {
+      this.saveState('numberOfPizzas', newVal);
+    },
+    ballSize(newVal) {
+      this.saveState('ballSize', newVal);
+    },
+    saltPct(newVal) {
+      this.saveState('saltPct', newVal);
+    },
+    hydration(newVal) {
+      this.saveState('hydration', newVal);
+    },
+    levain(newVal) {
+      this.saveState('levain', newVal);
+    }
   },
   computed: {
     totalDough() {
@@ -116,6 +133,13 @@ export default {
   methods: {
     removeFocus(event) {
       event.target.blur(); // Remove focus from input field on Enter
+    },
+    saveState(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    },
+    loadState(key, defaultValue) {
+      const savedValue = localStorage.getItem(key);
+      return savedValue !== null ? JSON.parse(savedValue) : defaultValue;
     }
   }
 };
