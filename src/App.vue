@@ -1,11 +1,11 @@
 <template>
-<div class="slider-container">
-  <div class="slider-header">
-    <h2>Number of Pizzas</h2>
-    <input type="number" v-model="numberOfPizzas" class="selected-number" min="1" @keyup.enter="removeFocus">
+  <div class="slider-container">
+    <div class="slider-header">
+      <h2>Number of Pizzas</h2>
+      <input type="number" v-model="numberOfPizzas" class="selected-number" min="1" @keyup.enter="removeFocus">
+    </div>
+    <input type="range" v-model="numberOfPizzas" min="1" max="20" step="1">
   </div>
-  <input type="range" v-model="numberOfPizzas" min="1" max="20" step="1">
-</div>
 
   <div class="slider-container">
     <div class="slider-header">
@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import './App.css';
 export default {
   name: 'App',
   data() {
@@ -163,152 +164,3 @@ export default {
   }
 };
 </script>
-
-<style>
-:root {
-  --text-color: #3C3C3C; /* Dark text color */
-  --background-light: #FFF8E7; /* Light cream background */
-  --background-off-white: #FFFAF0; /* Off-white background */
-  --highlight-color: #D35400; /* Rich orange highlight color */
-  --slider-track-color: #C0392B; /* Tomato red slider track */
-  --slider-thumb-color: #F1C40F; /* Cheese yellow slider thumb */
-  --note-color: #686868; /* Softer color for notes */
-}
-
-/* Global Styles */
-body {
-  font-family: 'Roboto', sans-serif;
-  color: var(--text-color);
-  background-color: var(--background-light);
-  margin: 0;
-  padding: 20px;
-  text-align: center;
-}
-
-#app {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: var(--background-off-white);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-h2, .recipe h2, .recipe h3 {
-  color: var(--highlight-color);
-}
-
-/* Slider Styles */
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  margin: 15px 0;
-  outline: none;
-}
-
-/* Slider Container */
-.slider-container {
-  margin-bottom: 30px;
-}
-
-.slider-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.slider-header h2 {
-  margin: 0;
-}
-
-/* Shared Styles for Selected Number and Button */
-.selected-number, .reset-button {
-  padding: 3px 6px; /* Reduced padding */
-  background-color: #f5f5f5;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  color: var(--highlight-color);
-  text-align: center;
-  cursor: pointer;
-}
-
-.selected-number {
-  margin: 0;
-  width: 60px; /* Specific to the input box */
-  text-align: right;
-  font-size: 1em; /* Original font size for the input */
-}
-
-/* Reset to Defualt Button */
-.reset-button-container {
-  text-align: right;
-  margin-bottom: 20px;
-}
-
-.reset-button {
-  font-size: 0.8em; /* Smaller font size for the button */
-}
-
-.reset-button:hover {
-  background-color: #e6e6e6;
-}
-
-/* Slider Track and Thumb */
-input[type="range"]::-webkit-slider-runnable-track,
-input[type="range"]:hover::-webkit-slider-runnable-track,
-input[type="range"]:focus::-webkit-slider-runnable-track {
-  height: 8px;
-  cursor: pointer;
-  box-shadow: 1px 1px 1px #000000;
-  background: var(--slider-track-color);
-  border-radius: 4px;
-  border: 1px solid #000000;
-  transition: background-color 0.2s ease;
-}
-
-input[type="range"]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000;
-  border: 1px solid #000000;
-  height: 24px;
-  width: 24px;
-  border-radius: 12px;
-  background: var(--slider-thumb-color);
-  cursor: pointer;
-  -webkit-appearance: none;
-  margin-top: -8px;
-}
-
-/* Recipe Styling */
-.ingredient-quantity {
-  font-weight: bold;
-}
-
-.ingredient-note {
-  font-style: italic;
-  color: var(--note-color);
-  font-size: 0.9em;
-}
-
-.recipe {
-  text-align: left;
-  max-width: 600px;
-  margin: auto;
-  padding: 20px;
-  background-color: var(--background-light);
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.recipe ul, .recipe ol {
-  padding-left: 20px;
-}
-
-.recipe li {
-  margin-bottom: 5px;
-}
-
-.recipe p {
-  color: var(--text-color);
-}
-</style>
-
