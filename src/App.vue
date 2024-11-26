@@ -197,14 +197,6 @@ h2, .recipe h2, .recipe h3 {
   color: var(--highlight-color);
 }
 
-/* Slider Styles */
-input[type="range"] {
-  -webkit-appearance: none;
-  width: 100%;
-  margin: 15px 0;
-  outline: none;
-}
-
 /* Slider Container */
 .slider-container {
   margin-bottom: 30px;
@@ -253,29 +245,89 @@ input[type="range"] {
   background-color: #e6e6e6;
 }
 
-/* Slider Track and Thumb */
-input[type="range"]::-webkit-slider-runnable-track,
-input[type="range"]:hover::-webkit-slider-runnable-track,
-input[type="range"]:focus::-webkit-slider-runnable-track {
+/* Base Styles */
+input[type="range"] {
+  -webkit-appearance: none; /* For WebKit-based browsers */
+  -moz-appearance: none;    /* For Firefox */
+  appearance: none;         /* Standard */
+  width: 100%;
+  margin: 15px 0;
+  outline: none;
+}
+
+/* WebKit Slider Track */
+input[type="range"]::-webkit-slider-runnable-track {
   height: 8px;
   cursor: pointer;
-  box-shadow: 1px 1px 1px #000000;
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
   background: var(--slider-track-color);
   border-radius: 4px;
   border: 1px solid #000000;
   transition: background-color 0.2s ease;
 }
 
+/* WebKit Slider Thumb */
 input[type="range"]::-webkit-slider-thumb {
-  box-shadow: 1px 1px 1px #000000;
+  -webkit-appearance: none;
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
   border: 1px solid #000000;
   height: 24px;
   width: 24px;
   border-radius: 12px;
   background: var(--slider-thumb-color);
   cursor: pointer;
-  -webkit-appearance: none;
   margin-top: -8px;
+}
+
+/* Firefox Slider Track */
+input[type="range"]::-moz-range-track {
+  height: 8px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
+  background: var(--slider-track-color);
+  border-radius: 4px;
+  border: 1px solid #000000;
+  transition: background-color 0.2s ease;
+}
+
+/* Firefox Slider Thumb */
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
+  border: 1px solid #000000;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background: var(--slider-thumb-color);
+  cursor: pointer;
+}
+
+/* Edge (Legacy) Slider Track */
+input[type="range"]::-ms-track {
+  height: 8px;
+  cursor: pointer;
+  background: transparent; /* Transparent to avoid default styles */
+  border-color: transparent;
+  border-width: 6px 0;
+  color: transparent;
+}
+input[type="range"]::-ms-fill-lower {
+  background: var(--slider-track-color);
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
+}
+input[type="range"]::-ms-fill-upper {
+  background: var(--slider-track-color);
+  border-radius: 4px;
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
+}
+input[type="range"]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000; /* Match earlier shadow */
+  border: 1px solid #000000;
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  background: var(--slider-thumb-color);
+  cursor: pointer;
 }
 
 /* Recipe Styling */
