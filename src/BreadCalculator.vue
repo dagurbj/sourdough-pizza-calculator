@@ -115,19 +115,23 @@ export default {
     }
   },
   computed: {
-    totalFlour() {
-      return Math.round(this.numberOfLoaves * this.flourPerLoaf);
+    totalFlourAllIncl() {
+      return Math.round((this.numberOfLoaves * this.flourPerLoaf));
     },
     gramsLevain() {
-      return Math.round(this.totalFlour * 2 * this.levain / 100);
+      return Math.round(this.totalFlourAllIncl * 2 * this.levain / 100);
+    },
+    totalFlour() {
+      const flourInLevain = this.gramsLevain / 2;
+      return Math.round(this.totalFlourAllIncl - flourInLevain);
     },
     gramsWater() {
       const waterInLevain = this.gramsLevain / 2;
-      const totalWater = this.totalFlour * this.hydration / 100;
+      const totalWater = this.totalFlourAllIncl * this.hydration / 100;
       return Math.round(totalWater - waterInLevain);
     },
     gramsSalt() {
-      return Math.round(this.totalFlour * this.saltPct / 100);
+      return Math.round(this.totalFlourAllIncl * this.saltPct / 100);
     }
   },
   methods: {
