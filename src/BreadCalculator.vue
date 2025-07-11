@@ -64,19 +64,34 @@
 
     <h3>Steps:</h3>
     <ol>
-      <li><b>Mix Levain and Water:</b> Combine levain with water until mixed.</li>
-      <li><b>Add Flour:</b> Mix in the bread flour until fully hydrated (autolyse for 30-60 minutes).</li>
-      <li><b>Add Salt:</b> Add salt and mix into dough.</li>
-      <li><b>Knead and Bulk Ferment:</b> Knead or stretch and fold the dough. Bulk ferment for 3-4 hours with stretch
-        and folds every 30-40 minutes.</li>
-      <li><b>Shape and Proof:</b> Shape loaves and proof for 2-3 hours or refrigerated overnight.</li>
-      <li><b>Bake:</b> Bake in a preheated Dutch oven or on a baking stone at 230°C (450°F) until crusty and hollow
-        sounding.</li>
+      <li><b>Mix Levain and Water:</b> In a large bowl, combine levain with most of the water (reserve 30-50 g). Stir
+        until the levain is fully dissolved.</li>
+
+      <li><b>Add Flour:</b> Add the bread flour and mix until no dry spots remain. The dough will be rough and shaggy.
+        Cover and let rest for <i>30-60 minutes</i> for the <b>autolyse</b>.</li>
+
+      <li><b>Add Salt and Reserved Water:</b> Sprinkle salt over the dough and pour in the reserved water. Mix
+        thoroughly by squeezing and folding until fully incorporated and the dough tightens slightly.</li>
+
+      <li><b>Knead and Bulk Ferment:</b> Begin bulk fermentation. Over the next <i>3-4 hours</i>, perform
+        stretch-and-folds or coil folds every <i>30-40 minutes</i> to strengthen the dough. Keep covered between folds.
+      </li>
+
+      <li><b>Shape and Proof:</b> After bulk fermentation, pre-shape the dough and let rest for 20 minutes. Shape into a
+        round or batard and place in a floured proofing basket. Proof for <i>2-3 hours</i> at room temperature or
+        refrigerate overnight.</li>
+
+      <li><b>Bake:</b> Preheat oven to <b>260 °C</b> with a Dutch oven inside. Transfer dough to parchment, score the
+        surface, and place in the hot Dutch oven. Bake <b>covered for 20 minutes at 260 °C</b>, then <b>uncovered for 10
+          minutes at 230 °C</b> or until deeply browned and hollow sounding.</li>
+
+      <li><b>Cool:</b> Let the bread cool completely on a wire rack for at least <i>1 hour</i> before slicing to allow
+        the crumb to set.</li>
     </ol>
+
 
     <p><b>Notes:</b></p>
     <ul>
-      <li>This recipe follows the Tartine bread methodology.</li>
       <li>You can adjust hydration and levain for different results.</li>
     </ul>
   </div>
