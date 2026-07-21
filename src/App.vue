@@ -1,11 +1,9 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/" class="nav-button" active-class="active" exact>Pizza Calculator</router-link>
-      <router-link to="/bread" class="nav-button" active-class="active">Bread Calculator</router-link>
-    </nav>
-    <router-view />
-  </div>
+  <nav>
+    <router-link to="/" class="nav-button" active-class="active" exact>Pizza Calculator</router-link>
+    <router-link to="/bread" class="nav-button" active-class="active">Bread Calculator</router-link>
+  </nav>
+  <router-view />
 </template>
 
 <script>
