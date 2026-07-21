@@ -1,42 +1,42 @@
 <template>
 <div class="slider-container">
   <div class="slider-header">
-    <h2>Number of Pizzas</h2>
-    <input type="number" v-model="numberOfPizzas" class="selected-number" min="1" @keyup.enter="removeFocus">
+    <h2 id="number-of-pizzas-label">Number of Pizzas</h2>
+    <input id="number-of-pizzas-input" type="number" v-model="numberOfPizzas" class="selected-number" min="1" aria-labelledby="number-of-pizzas-label" @keyup.enter="removeFocus">
   </div>
-  <input type="range" v-model="numberOfPizzas" min="1" max="20" step="1">
+  <input type="range" v-model="numberOfPizzas" min="1" max="20" step="1" aria-labelledby="number-of-pizzas-label">
 </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Dough pr. Pizza</h2>
+      <h2 id="dough-per-pizza-label">Dough pr. Pizza</h2>
       <p class="selected-number">{{ ballSize }}g</p>
     </div>
-    <input type="range" v-model="ballSize" min="200" max="350" step="1">
+    <input type="range" v-model="ballSize" min="200" max="350" step="1" aria-labelledby="dough-per-pizza-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Salt</h2>
+      <h2 id="pizza-salt-label">Salt</h2>
       <p class="selected-number">{{ saltPct }}%</p>
     </div>
-    <input type="range" v-model="saltPct" min="0.0" max="3.5" step="0.1">
+    <input type="range" v-model="saltPct" min="0.0" max="3.5" step="0.1" aria-labelledby="pizza-salt-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Hydration</h2>
+      <h2 id="pizza-hydration-label">Hydration</h2>
       <p class="selected-number">{{ hydration }}%</p>
     </div>
-    <input type="range" v-model="hydration" min="60" max="100" step="1">
+    <input type="range" v-model="hydration" min="60" max="100" step="1" aria-labelledby="pizza-hydration-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Levain</h2>
+      <h2 id="pizza-levain-label">Levain</h2>
       <p class="selected-number">{{ levain }}%</p>
     </div>
-    <input type="range" v-model="levain" min="5" max="25" step="1">
+    <input type="range" v-model="levain" min="5" max="25" step="1" aria-labelledby="pizza-levain-label">
   </div>
 
   <div class="reset-button-container">
@@ -169,10 +169,11 @@ export default {
   --text-color: #3C3C3C; /* Dark text color */
   --background-light: #FFF8E7; /* Light cream background */
   --background-off-white: #FFFAF0; /* Off-white background */
-  --highlight-color: #D35400; /* Rich orange highlight color */
+  --highlight-color: #4a2200; /* Dark brown highlight color for contrast */
   --slider-track-color: #C0392B; /* Tomato red slider track */
   --slider-thumb-color: #F1C40F; /* Cheese yellow slider thumb */
   --note-color: #686868; /* Softer color for notes */
+  --focus-ring-color: #0f62fe;
 }
 
 /* Global Styles */
@@ -224,6 +225,13 @@ h2, .recipe h2, .recipe h3 {
   cursor: pointer;
 }
 
+input.selected-number:focus-visible,
+.reset-button:focus-visible,
+input[type="range"]:focus-visible {
+  outline: 3px solid var(--focus-ring-color);
+  outline-offset: 3px;
+}
+
 .selected-number {
   margin: 0;
   width: 60px; /* Specific to the input box */
@@ -243,6 +251,10 @@ h2, .recipe h2, .recipe h3 {
 
 .reset-button:hover {
   background-color: #e6e6e6;
+}
+
+.nav-button:hover {
+  background-color: #ececec;
 }
 
 /* Base Styles */
@@ -363,4 +375,3 @@ input[type="range"]::-ms-thumb {
   color: var(--text-color);
 }
 </style>
-

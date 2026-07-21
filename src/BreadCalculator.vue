@@ -1,42 +1,42 @@
 <template>
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Number of Loaves</h2>
-      <input type="number" v-model="numberOfLoaves" class="selected-number" min="1" @keyup.enter="removeFocus">
+      <h2 id="number-of-loaves-label">Number of Loaves</h2>
+      <input id="number-of-loaves-input" type="number" v-model="numberOfLoaves" class="selected-number" min="1" aria-labelledby="number-of-loaves-label" @keyup.enter="removeFocus">
     </div>
-    <input type="range" v-model="numberOfLoaves" min="1" max="10" step="1">
+    <input type="range" v-model="numberOfLoaves" min="1" max="10" step="1" aria-labelledby="number-of-loaves-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Flour per Loaf</h2>
+      <h2 id="flour-per-loaf-label">Flour per Loaf</h2>
       <p class="selected-number">{{ flourPerLoaf }}g</p>
     </div>
-    <input type="range" v-model="flourPerLoaf" min="300" max="800" step="10">
+    <input type="range" v-model="flourPerLoaf" min="300" max="800" step="10" aria-labelledby="flour-per-loaf-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Salt</h2>
+      <h2 id="bread-salt-label">Salt</h2>
       <p class="selected-number">{{ saltPct }}%</p>
     </div>
-    <input type="range" v-model="saltPct" min="0.0" max="3.5" step="0.1">
+    <input type="range" v-model="saltPct" min="0.0" max="3.5" step="0.1" aria-labelledby="bread-salt-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Hydration</h2>
+      <h2 id="bread-hydration-label">Hydration</h2>
       <p class="selected-number">{{ hydration }}%</p>
     </div>
-    <input type="range" v-model="hydration" min="60" max="100" step="1">
+    <input type="range" v-model="hydration" min="60" max="100" step="1" aria-labelledby="bread-hydration-label">
   </div>
 
   <div class="slider-container">
     <div class="slider-header">
-      <h2>Levain</h2>
+      <h2 id="bread-levain-label">Levain</h2>
       <p class="selected-number">{{ levain }}%</p>
     </div>
-    <input type="range" v-model="levain" min="5" max="25" step="1">
+    <input type="range" v-model="levain" min="5" max="25" step="1" aria-labelledby="bread-levain-label">
   </div>
 
   <div class="reset-button-container">
@@ -184,9 +184,16 @@ export default {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  color: #D35400;
+  color: #4a2200;
   text-align: center;
   cursor: pointer;
+}
+
+input.selected-number:focus-visible,
+.reset-button:focus-visible,
+input[type="range"]:focus-visible {
+  outline: 3px solid #0f62fe;
+  outline-offset: 3px;
 }
 
 .reset-button-container {
